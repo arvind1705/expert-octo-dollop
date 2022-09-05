@@ -1,0 +1,108 @@
+@import url(https://fonts.googleapis.com/css?family=Almendra+Display);
+@import url(https://fonts.googleapis.com/css?family=Exo+2:900);
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #87F5FB;
+  font-family: "Cardo", serif;
+}
+
+.wrapper {
+  position: relative;
+  height: 100vh;
+}
+
+.card, .card-bg {
+  margin: 80px auto;
+  width: 600px;
+  height: 290px;
+  background-color: #F0F0F0;
+  position: relative;
+  text-align: center;
+}
+.card:before, .card-bg:before {
+  content: "";
+  z-index: -1;
+  position: absolute;
+  width: 650px;
+  height: 340px;
+  top: -25px;
+  left: -25px;
+  background-image: repeating-linear-gradient(-45deg, #F0F0F0, #F0F0F0 30px, #212121 30px, #212121 55px, #F0F0F0 55px);
+}
+
+.stamp {
+  top: 15px;
+  right: 15px;
+  height: 60px;
+  width: 60px;
+  display: inline-block;
+  padding: 10px;
+  background: #F65042;
+  position: absolute;
+  background: radial-gradient(transparent 0px, transparent 4px, #F65042 4px, #F65042);
+  background-size: 20px 20px;
+  background-position: -10px -10px;
+}
+.stamp:after {
+  content: "";
+  height: 45px;
+  width: 45px;
+  background: #F65042;
+  display: inline-block;
+}
+
+.happy {
+  font-size: 80px;
+  text-transform: capitalize;
+  font-family: "Almendra Display", cursive;
+  width: 70%;
+  line-height: 95px;
+  margin: 0 auto;
+  color: #2F131E;
+}
+
+.card-bg {
+  text-transform: uppercase;
+  text-align: center;
+  background: #2F131E;
+}
+
+.animated-fill {
+  font: 800 145px "Exo 2", sans-serif;
+  line-height: 125px;
+  display: block;
+  background: url(https://c1.staticflickr.com/3/2476/4562937688_65076603db_o.png) repeat-y;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -webkit-animation: anim-bg 15s linear infinite;
+  -webkit-transform: translate3d(0, 0, 0);
+  -webkit-backface-visibility: hidden;
+  -webkit-text-stroke: 1px white;
+}
+
+@-webkit-keyframes anim-bg {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
+  }
+}
+.card-front, .card-back {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.card-back {
+  opacity: 0;
+  transition: opacity 0.2s ease-in;
+}
+
+.card-container:hover .card-back {
+  opacity: 1;
+  transition: opacity 0.3s ease-out;
+}
